@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seminario Imagen Natural</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-image: url('incrip.jpg');
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            color: white
+        }
+        .error {
+            color: red;
+        }
+        .mayores-de-edad {
+            text-align: right;
+            background-color: crimson;
+        }
+        .menos-de-edad {
+            background-color: blue;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Formulario de Inscripción</h1>
+    <h2>Completa tus datos generales</h2>
+
+    <form id="formulario" onsubmit="return validarFormulario()">
+        <h3>Información Personal</h3>
+        <label for="nombres">Nombres:</label>
+        <input type="text" id="nombres" name="nombres" placeholder="Nombres completos" required><br><br>
+
+        <label for="apellidos">Apellidos:</label>
+        <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos completos" required><br><br>
+
+        <label for="dni">DNI:</label>
+        <input type="text" id="dni" name="dni" placeholder="DNI" required><br><br>
+
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" name="edad" placeholder="Edad" required><br><br>
+
+        <label for="fechaNacimiento">Fecha de nacimiento:</label>
+        <input type="date" id="fechaNacimiento" name="fechaNacimiento" required><br><br>
+
+        <label>Género:</label>
+        <label><input type="radio" name="genero" value="masculino"> Masculino</label>
+        <label><input type="radio" name="genero" value="femenino"> Femenino</label><br><br>
+
+        <label>Nacionalidad:</label>
+        <label><input type="radio" name="nacionalidad" value="peruano"> Peruano</label>
+        <label><input type="radio" name="nacionalidad" value="otro"> Otro (solo se aceptan peruanos)</label><br><br>
+
+        <h3>Datos de Contacto</h3>
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" placeholder="Escribe tu email" required><br><br>
+
+        <label for="telefono">Número de teléfono:</label>
+        <input type="text" id="telefono" name="telefono" placeholder="Número de teléfono" required><br><br>
+
+        <button type="submit">Enviar</button>
+    </form>
+
+    <div id="error" class="error"></div>
+
+    <script>
+        function validarFormulario() {
+            var edad = document.getElementById("edad").value;
+            var nacionalidad = document.querySelector('input[name="nacionalidad"]:checked');
+            var errorDiv = document.getElementById("error");
+
+            if (edad < 18) {
+                errorDiv.textContent = "Lo siento, debes tener 18 años o más para inscribirte.";
+                return false;
+            }
+
+            if (!nacionalidad || nacionalidad.value !== "peruano") {
+                errorDiv.textContent = "Solo los ciudadanos peruanos pueden inscribirse.";
+                return false;
+            }
+
+            var formData = new FormData(document.getElementById("formulario"));
+            var datos = "";
+            formData.forEach((value, key) => {
+                datos += key + ": " + value + "<br>";
+            });
+            localStorage.setItem("datosPostulante", datos);
+            window.location.href = "confirmacion.html";
+            return false;
+        }
+    </script>
+</body>
+</html>
