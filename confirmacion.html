@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscripción Aprobada</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        .aprobados {
+            color: green;
+            font-size: 2em;
+        }
+        .datos {
+            font-size: 1.2em;
+            margin-top: 20px;
+            text-align: left;
+            display: inline-block;
+            padding: 10px;
+            background-color: #f4f4f4;
+            border-radius: 5px;
+            width: 80%;
+            margin: 20px auto;
+            text-align: left;
+            border: 2px solid #ccc;
+        }
+        .datos ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .datos li {
+            margin-bottom: 10px;
+        }
+        .cuadro {
+            border: 2px solid #007BFF;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 30px;
+            background-color: #e3f2fd;
+            width: 80%;
+            margin: 20px auto;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="aprobados">¡Felicidades, tu inscripción ha sido aprobada!</h1>
+    <h2>Tu Información Personal es correcta</h2>
+
+    <h3>Datos del postulante</h3>
+    <div id="datosPostulante" class="datos">
+
+    </div>
+
+    <div class="cuadro">
+        <h4>Datos del postulante registrados:</h4>
+        <div id="datosCuadro">
+
+        </div>
+    </div>
+
+    <br>
+    <a href="index.html">
+        <button>Volver a la página anterior</button>
+    </a>
+
+    <script>
+
+        var datos = localStorage.getItem("datosPostulante");
+
+        if (datos) {
+            document.getElementById("datosPostulante").innerHTML = '<ul>' + datos + '</ul>';
+        } else {
+            document.getElementById("datosPostulante").innerHTML = "No se encontraron datos.";
+        }
+
+        if (datos) {
+            document.getElementById("datosCuadro").innerHTML = '<ul>' + datos + '</ul>';
+        } else {
+            document.getElementById("datosCuadro").innerHTML = "No se encontraron datos registrados.";
+        }
+    </script>
+</body>
+</html>

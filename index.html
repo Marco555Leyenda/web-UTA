@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impresión UTA</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-image: url('ia.jpg');
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .top-box {
+            background-color: #00BFFF;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 36px;
+            font-weight: bold;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-right: 20px;
+            box-sizing: border-box;
+        }
+
+        .top-box p.subtitle {
+            font-size: 20px;
+            font-weight: normal;
+        }
+
+        .whatsapp-link img {
+            width: 50px;
+            height: auto;
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 80%;
+            max-width: 1000px;
+            margin: 200px auto 0 auto;
+            overflow: hidden;
+            border: 2px solid transparent;
+        }
+
+        .carousel-images {
+            display: flex;
+            transition: transform 1s ease-in-out;
+        }
+
+        .carousel-images .carousel-item {
+            position: relative;
+            flex: 0 0 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .carousel-images img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        .carousel-caption {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 36px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-size: 24px;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="top-box">
+        <div>
+            <p>Bienvenido a UTA</p>
+            <p class="subtitle">Proceda a averiguar sobre UTA</p>
+        </div>
+
+        <div class="whatsapp-link">
+            <a href="https://wa.me/51998867367" target="_blank">
+                <img src="whaA.jpg" alt="WhatsApp">
+            </a>
+        </div>
+    </div>
+
+    <div>
+        <div class="carousel-container">
+            <div class="carousel-images">
+                <div class="carousel-item">
+                    <a href="contactos.html">
+                        <img src="contacto.jpg" alt="Imagen 1">
+                        <div class="carousel-caption">Contacto</div>
+                    </a>
+                </div>
+
+                <div class="carousel-item">
+                    <a href="formulario de Inscripción.html">
+                        <img src="incrip.jpg" alt="Imagen 2">
+                        <div class="carousel-caption">Inscripción</div>
+                    </a>
+                </div>
+
+                <div class="carousel-item">
+                    <a href="ponentes.html">
+                        <img src="uta.jpg" alt="Imagen 3">
+                        <div class="carousel-caption">Acerca del personal</div>
+                    </a>
+                </div>
+            </div>
+            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="next" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+    </div>
+
+    <div id="error" class="error"></div>
+
+    <script>
+        let slideIndex = 0;
+
+        function moveSlide(step) {
+            let slides = document.querySelectorAll('.carousel-images .carousel-item');
+            slideIndex += step;
+
+            if (slideIndex >= slides.length) {
+                slideIndex = 0;
+            } else if (slideIndex < 0) {
+                slideIndex = slides.length - 1;
+            }
+
+            let newTransform = `translateX(${-slideIndex * 100}%)`;
+            document.querySelector('.carousel-images').style.transform = newTransform;
+        }
+    </script>
+</body>
+</html>

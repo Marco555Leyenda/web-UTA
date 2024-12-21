@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactanos</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-image: url('contacto.jpg');
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        .error {
+            color: red;
+        }
+
+        h1, h2 {
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Contenedor que tiene la imagen y el texto */
+        .contact-details {
+            position: relative;
+            display: inline-block;
+            width: 80%;
+            max-width: 800px;
+            margin: 20px auto;
+            background-image: url('mente1.jpg'); /* La imagen de fondo */
+            background-size: cover;
+            background-position: center;
+            padding: 20px;
+            color: white;
+            border-radius: 10px; /* Esquinas redondeadas */
+        }
+
+        /* Estilos para los detalles */
+        .contact-details h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-align: center;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .contact-details ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .contact-details li {
+            font-size: 18px;
+            margin: 8px 0;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Estilos para mejorar la visibilidad */
+        .course-list {
+            background: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        /* Estilo para el enlace de Google Maps */
+        .google-map-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .google-map-link:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Contactanos y Ubicación</h1>
+    <h2>Alguna duda preguntenos a través de las siguientes opciones</h2>
+
+    <div class="contact-details">
+        <h3>Detalles acerca de la persona encargada</h3>
+        <ul>
+            <li>Nacionalidad: Perú</li>
+            <li>Número de contacto: 998867367</li>
+            <li>Dirección:</li>
+        </ul>
+
+        <a href="https://www.google.com/maps?q=SENATI%20ILO%2C%20Av%201%2C%20Ilo%2018601" target="_blank" class="google-map-link">
+            Ver Ubicación en Google Maps
+        </a>
+    </div>
+
+    <div id="error" class="error"></div>
+</body>
+</html>
+
